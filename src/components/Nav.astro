@@ -6,23 +6,19 @@ import type { iconPaths } from './IconPaths';
 /** Main menu items */
 const textLinks: { label: string; href: string }[] = [
 	{ label: 'Inicio', href: '/' },
-	{ label: 'Redes', href: '/work/' },
-	{ label: 'Sobre Mí', href: '/about/' },
 ];
 
 /** Icon links to social media — edit these with links to your profiles! */
 const iconLinks: { label: string; href: string; icon: keyof typeof iconPaths }[] = [
-	{ label: 'Twitter', href: 'https://twitter.com/me', icon: 'twitter-logo' },
-	{ label: 'Twitch', href: 'https://twitch.tv/me', icon: 'twitch-logo' },
-	{ label: 'YouTube', href: 'https://www.youtube.com/@me/', icon: 'youtube-logo' },
+	{ label: 'Instagram', href: 'https://twitch.tv/me', icon: 'instagram-logo' },
+	{ label: 'Tiktok', href: 'https://www.youtube.com/@me/', icon: 'tiktok-logo' },
 ];
 ---
 
 <nav>
 	<div class="menu-header">
 		<a href="/" class="site-title">
-			<Icon icon="twitch-logo" color="var(--accent-regular)" size="1.6em" gradient />
-			Jeanine White
+			Betania Guillen
 		</a>
 		<menu-button>
 			<template>
@@ -72,28 +68,6 @@ const iconLinks: { label: string; href: string; icon: keyof typeof iconPaths }[]
 		</div>
 	</noscript>
 	<div id="menu-content" hidden>
-		<ul class="nav-items">
-			{
-				textLinks.map(({ label, href }) => (
-					<li>
-						<a
-							aria-current={Astro.url.pathname === href}
-							class:list={[
-								'link',
-								{
-									active:
-										Astro.url.pathname === href ||
-										(href !== '/' && Astro.url.pathname.startsWith(href)),
-								},
-							]}
-							href={href}
-						>
-							{label}
-						</a>
-					</li>
-				))
-			}
-		</ul>
 		<div class="menu-footer">
 			<div class="socials">
 				{

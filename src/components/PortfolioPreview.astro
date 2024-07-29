@@ -1,16 +1,25 @@
 ---
 import type { CollectionEntry } from 'astro:content';
 
-interface Props {
-	project: CollectionEntry<'work'>;
+interface Project {
+		title: string,
+      description: string,
+      publishDate: Date,
+      tags: string,
+      img: string,
+      img_alt: string,
 }
 
-const { data, slug } = Astro.props.project;
+interface Props {
+	project: Project
+}
+
+const project = Astro.props.project;
 ---
 
-<a class="card" href={`/work/${slug}`}>
-	<span class="title">{data.title}</span>
-	<img src={data.img} alt={data.img_alt || ''} loading="lazy" decoding="async" />
+<a class="card" href={`/work/`}>
+	<span class="title">{project.title}</span>
+	<img src={project.img} alt={project.img_alt || ''} loading="lazy" decoding="async" />
 </a>
 
 <style>

@@ -1,25 +1,23 @@
 ---
 import type { CollectionEntry } from 'astro:content';
 
-interface Project {
+interface SocialNetwork {
 		title: string,
-      description: string,
-      publishDate: Date,
-      tags: string,
+		link: string,
       img: string,
       img_alt: string,
 }
 
 interface Props {
-	project: Project
+	socialNetwork: SocialNetwork
 }
 
-const project = Astro.props.project;
+const socialNetwork = Astro.props.socialNetwork;
 ---
 
-<a class="card" href={`/work/`}>
-	<span class="title">{project.title}</span>
-	<img src={project.img} alt={project.img_alt || ''} loading="lazy" decoding="async" />
+<a class="card" href={`${socialNetwork.link}`}>
+	<span class="title">{socialNetwork.title}</span>
+	<img src={socialNetwork.img} alt={socialNetwork.img_alt || ''} loading="lazy" decoding="async" />
 </a>
 
 <style>
